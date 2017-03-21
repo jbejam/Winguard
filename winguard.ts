@@ -81,12 +81,20 @@ namespace Winguard {
 				return r
 			}
 		}
-		effect(fn: Effect<ST>, rule?: Rule<ST>): Rule<ST> {
+		effect(fn: Effect<ST>, rule?: (Rule<ST> | string)): Rule<ST> {
 			return (state, args) => {
 				let r = false;
 				if (rule === undefined) {
 					r = true;
 				} else {
+					if (typeof rule === "string") {
+						let rulename = rule;
+						rule = this.registry.get(rulename);
+						if (!rule === undefined) {
+							throw Error(`Undefined rulename: ${rulename}`);
+						}
+
+					}
 					let r = rule(state, args);
 				}
 				if (r) {
