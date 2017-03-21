@@ -4,17 +4,11 @@
 // TODO
 // Polish code, so much boilerplate.
 namespace Winguard {
-	export type Recorder = (name: string, succeded: boolean) => void;
 	export type Schema<KS extends string, ST> = {[K in keyof KS]: Rule<ST>}
-	export type Predicate<ST> = (state: Readonly<ST>) => boolean;
 	export type Transition<ST> = (state: ST) => ST;
 	export type Effect<ST> = (state: ST, args: any) => ST | Function;
 	export type Rule<ST> = (state: Readonly<ST>, args?: any) => boolean;
-	export type Listener<ST> = (state: ST, transition: ST) => void;
 
-	const setState = <ST>(context: Guard<ST>, transition: Transition<ST>) => {
-		context.currentState = transition(context.currentState);
-	}
 	const nextEffect = <ST>(context: Guard<ST>, arr: any[]) => {
 		function recur(st?: ST) {
 			if (st !== undefined) {
