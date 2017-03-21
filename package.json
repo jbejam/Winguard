@@ -1,0 +1,26 @@
+{
+  "name": "winguard",
+  "version": "1.0.0",
+  "description": "Declarative state managment DSL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbejam/winguard.git"
+  },
+  "keywords": [
+    "DSL",
+    "Declarative",
+    "state-managment",
+    "Typescript",
+    "JS"
+  ],
+  "author": "Jesús Bejarano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbejam/winguard/issues"
+  },
+  "homepage": "https://github.com/jbejam/winguard#readme"
+}
